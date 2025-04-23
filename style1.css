@@ -1,0 +1,184 @@
+body {
+    background-color: lightslategray;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.45;
+}
+#MenuBtn{
+}
+
+#MenuSide,#MenuDrop{
+    display: none;
+}
+@font-face {
+    font-family: traceFont;
+    src: url(Trace.ttf);
+    /*    font-weight: bold;*/
+}
+
+@font-face {
+    font-family: KGdotsFont;
+    src: url(KGdots.ttf);
+    /*    font-weight: bold;*/
+}
+
+.traceMe {
+    font-family: traceFont !important;
+    font-size: 5rem;
+
+}
+
+.dotsMe {
+    font-family: KGdotsFont !important;
+    font-size: 7rem;
+}
+
+.Tiny {
+    width: 48px;
+}
+
+.reads.shape.Sm img {
+    width: 72px;
+    padding: 5px;
+}
+
+.reads.shape.Md img {
+    width: 120px;
+    padding: 5px;
+}
+
+.reads.shape.Lr img {
+    width: 168px;
+    padding: 5px;
+}
+
+.reads.shape.XL img {
+    width: 288px;
+    padding: 5px;
+}
+
+.solve {
+    border: 1px solid black;
+}
+
+.Sm > div {
+    font-size: 3rem !important;
+}
+
+.Md > div {
+    font-size: 5rem !important;
+}
+
+.Lr > div {
+    font-size: 7rem !important;
+}
+
+.XL > div {
+    font-size: 12rem !important;
+}
+
+.SwS {
+    border: 3px solid blue;
+}
+
+.wStyle {
+    cursor: pointer;
+}
+
+
+.Main {
+    text-align: center;
+}
+
+.Contained {
+    margin: 0 auto;
+    width: 75%;
+    border: 30px, dotted, black;
+    background-color: white;
+}
+
+.rr:hover {
+    color: rgba(255, 0, 0, 1);
+    background-color: rgba(255, 0, 0, .2);
+}
+
+.rr {
+    color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 0, 0, 0);
+    border-radius: 25%;
+}
+
+/*
+.reads:hover::before {
+    content: "x";
+}
+*/
+/* .card{
+  border: 2px, solid, black;
+  border-radius: 25%;
+} */
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65);
+    /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60);
+    /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20);
+    /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221);
+    /* this is a light blue */
+}
+
+.button-xsmall {
+    font-size: 70%;
+}
+
+.button-small {
+    font-size: 85%;
+}
+
+.button-large {
+    font-size: 110%;
+}
+
+.button-xlarge {
+    font-size: 125%;
+}
+
+
+div.reads {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+
+
+}
+
+.footer > a {
+    color: lightblue
+}
