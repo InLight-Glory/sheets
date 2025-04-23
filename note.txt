@@ -1,0 +1,132 @@
+Tweaks:
+
+-----------------
+Tracing-
+
+-----------------
+Math-
+New things
+
+-----------------
+Vocabulary-
+correct digraphs ?
+Add rhyming words list
+CVC, CV, VC, CVVC, VCCV list
+
+
+-----------------
+Reading-
+basic
+
+advacned
+The *hen is *red and the *man is *tall.
+The *cat is *slow and the *dog is *scared.
+
+Pronouns: I,you,he/she,we,t1hey
+tenses: am/was, are, is/was, are/were
+Conjunctions: for,and,but,or,yet,so,nor
+Articles: The, A / An(starts with vowels)
+Nouns: person,place,thing
+is, was
+Verbs: actions, states, occurnaces
+Ad-Verbs
+Adjectives: Modifies nouns
+
+Declarative [The sun is shining]
+Interrogative [why are you late?  what is the time?]
+Imperative [Be quiet -command/ please quiet down -request/ enjoy yourself -wish]
+Exclamatory [that catch was amazing]
+
+subj-verb [the boy plays]
+subj-verb-obj [the girl pets the cat]
+subj-verb-adj [the girl is pretty]
+subj-verb-adverb [the boy laughs loudly]
+subj-verb-noun [The woman is a teacher]
+Sentences can be: Simple/Compund/Complex/ Compund-Complex
+
+Reading+Writing
+What *color is the *square?
+What *color is the *small *square?
+Write the number *twenty five.
+
+Reading+Math
+The boy has five apples. He finds two more apples.
+How many apples does the boy have?
+Which number is greater of these two numbers?
+Which number is the least of these two numbers?
+
+dogs,cats,toys,birds,cookies,
+
+https://www.enchantedlearning.com/rhymes/wordfamilies/
+https://www.themeasuredmom.com/free-printable-cvc-word-list/
+https://ecdn.teacherspayteachers.com/thumbitem/CVCe-Word-Family-Word-Mats-1850657-1572886398/original-1850657-2.jpg 
+file:///D:/Downloads/CVVC%20Word%20List.pdf
+
+
+-----------------
+OVERALL-
+Update the look
+Change menu to a responsive verticle menu on right side. allow for responsive menu to become an <input> selection.
+
+
+------------------------------------------------------------------------------------------------
+
+Refrences
+https://editor.method.ac/
+(3px dashes)
+
+
+https://purecss.io/
+https://jquery.com/
+https://api.jquery.com/
+https://stackoverflow.com/
+https://editor.method.ac/
+https://www.w3schools.com/
+https://ogp.me/
+https://neilpatel.com/blog/open-graph-meta-tags/
+https://developers.facebook.com/docs/sharing/webmasters/
+https://developers.facebook.com/tools/
+https://www.facebook.com/analytics/179151353174159/overview/?user_id=18708374&__aref_src=devsite&__aref_id=app_dashboard
+https://dev.w3.org/html5/html-author/charref
+https://www.toptal.com/designers/htmlarrows/symbols/
+https://tobiasahlin.com/blog/move-from-jquery-to-vanilla-javascript/
+https://www.1001freefonts.com/outline-fonts.php
+https://www.fontspace.com/category/tracing
+
+Saved for later:
+https://i.pinimg.com/564x/f2/26/fe/f226fe4357d75042ff55873b1771e256.jpg
+https://secure.img1-fg.wfcdn.com/im/88201965/resize-h800%5Ecompr-r85/4111/41113020/Dr+Seuss+Content+Word+Families.jpg
+
+**
+https://www.paperrater.com/page/lists-of-adjectives
+**
+Verb: a word or phrase that describes an action, condition or experience e.g. 'run', 'look' and 'feel'. Adjective: a word that describes a noun e.g. 'big', 'boring', 'pink', 'quick' and 'obvious'.Jan 27, 2010
+
+**
+https://www.englishgrammar101.com/
+**
+
+**
+https://grammar.yourdictionary.com/parts-of-speech/adverbs/list-of-100-adverbs.html
+**
+
+
+**
+https://word.tips/words-for/_/words-end-in/ew/?dictionary=wwf
+**
+
+**
+
+**
+
+https://www.english-grammar-revolution.com/list-of-conjunctions.html
+https://cleverlearner.com/letter-sounds/three-letter-words-preschool-activity-worksheets.html
+
+
+https://www.google.com/search?q=list+of+verbs&sxsrf=ALeKk02V44xrMx8ogLjoR8GFZ-N2gZXumg:1588957582427&tbm=isch&source=iu&ictx=1&fir=RABqrOqEsc905M%253A%252CXXNo9F7LgxfpWM%252C_&vet=1&usg=AI4_-kS0ETJ0w2XSYPisD5aP8wGhky7UXQ&sa=X&ved=2ahUKEwiMw42i4KTpAhWRMd8KHT35D8QQ9QEwG3oECAMQOQ#imgrc=lXxFO04k2RtGeM
+
+https://www.google.com/search?q=list+of+adverbs&sxsrf=ALeKk00W_AqSmkhgtRIHNWCBkodP8Ma7aA:1589049750355&tbm=isch&source=iu&ictx=1&fir=HE_MOX-OI76NRM%253A%252CpaL2Xi7w5quapM%252C_&vet=1&usg=AI4_-kTdgETsgtE8JHZR6AWlb0lnQDVtvg&sa=X&ved=2ahUKEwj_rZnPt6fpAhXwQ98KHYdGDzYQ_h0wAnoECAoQCA#imgrc=HE_MOX-OI76NRM:
+
+https://www.google.com/search?q=tense+list&sxsrf=ALeKk03Q92vEJEd6EbOIaLEv2jGOwqKxuQ:1589049750286&tbm=isch&source=iu&ictx=1&fir=iKgkQParamAxIM%253A%252CpOaHZKVTfEH7kM%252C_&vet=1&usg=AI4_-kTn0tga6BIrDiMOSyBJD-aHfag2Cw&sa=X&ved=2ahUKEwjqk5XPt6fpAhWkiOAKHaj2BqsQ_h0wAnoECAkQCA#imgrc=vf4rgXqZMUPcpM
+
+

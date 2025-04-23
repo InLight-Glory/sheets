@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--   <meta charset=utf-8>-->
+    <title>Sheets Home</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery CDN   https://api.jquery.com/category/attributes/
+or just use vanilla JavaScript... https://tobiasahlin.com/blog/move-from-jquery-to-vanilla-javascript/    -->
+
+
+    <!-- Pure UI OPTIONAL  -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" />
+    <!--[if lte IE 8]>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css"
+      />
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css" />
+    <!--<![endif]-->
+    <!-- Pure UI OPTIONAL   https://purecss.io/start/   -->
+
+    <script type="text/javascript" src="db.js"></script>
+
+    <script src="registry.js"></script>
+    <script src="Math.js"></script>
+    <script src="Vocabulary.js"></script>
+    <script src="Tracing.js"></script>
+    <script>
+        var writeOn = "";
+
+        function LoadLetterSection() {
+            var rOut = "";
+            var dbr = JSON.parse(main);
+            var rObject = dbr["wordsof"].length - 2;
+            var brek = 0;
+            for (i = 0; i <= rObject; i++) {
+                brek++;
+                if (i == 2) {
+                    rOut += `| <input type="radio" id="L${i}" name="Letters" value="${i}" checked />
+            <label for="L${i}">${dbr["wordsof"][i]["amount"]}</label> `;
+
+                } else {
+                    rOut += `| <input type="radio" id="L${i}" name="Letters" value="${i}" />
+            <label for="L${i}">${dbr["wordsof"][i]["amount"]}</label> `;
+                }
+                if (brek == 3) {
+                    brek = 0;
+                    rOut += "<br/>";
+                }
+            }
+
+
+            $(".vocabSelect").html(rOut);
+        }
+        var tracingStyle = "";
+        var tracingSize = "";
+
+        function printDiv(divName) {
+            var named = document.getElementById("kidsName").value;
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            document.getElementById("kidsName").value = named;
+            window.print();
+            document.body.innerHTML = originalContents;
+            document.getElementById("kidsName").value = named;
+            chkRadio(tracingStyle, tracingSize);
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style type="text/css" media="print">
+        .DontPrintMe { display: none; }
+    </style>   
+</head>
+
+<body>
+    <div class="pure-g DontPrintMe">
+    <div class="pure-u-1" style="text-align: center"><img src="sheetsHeader.png" style="height: 20vh" alt=""></div>
+    </div>
+    <div class="printable" id="thePrints"></div>
+    <div class="Main">
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <p><button class="SubjectsSelect pure-button ">Math</button></p>
+            </div>
+            <div class="pure-u-1-3">
+                <p><button class="SubjectsSelect pure-button ">Vocabulary</button></p>
+            </div>
+            <div class="pure-u-1-3">
+                <p><button class="SubjectsSelect pure-button ">Tracing</button></p>
+            </div>
+        </div>
+        <div class="Contained">
+            <!--MATH FORM AREA--------------------------->
+            <!--MATH FORM AREA--------------------------->
+            <div class="math" style="display:none;">
+                <br />
+                <div class="pure-g arithmetic">
+                    <div class="pure-u-1-3">
+                        <p><button class="pure-button button-secondary" value="#43">&#43;
+                            </button></p>
+                    </div>
+                    <div class="pure-u-1-3">
+                        <p><button class="pure-button" value="#8722">&#8722;</button></p>
+                    </div>
+                    <div class="pure-u-1-3">
+                        <p><button class="pure-button" value="#215">&#215;</button></p>
+                    </div>
+                    <div class="pure-u-1-3">
+                        <p><button class="pure-button" value="#247">&#247;</button></p>
+                    </div>
+                    <div class="pure-u-1-3">
+                        <p>
+                            <button class="pure-button" value="#60#62">&#60;&#62;</button>
+                        </p>
+                    </div>
+                    <div class="pure-u-1-3">
+                        <p>
+                            <button class="pure-button" value="xscr">(&xscr;)</button>
+                        </p>
+                    </div>
+                </div>
+                <form class="pure-form" id="maths">
+                    <fieldset>
+                        <legend>Setup</legend>
+                        Number Range:
+                        <input class="pure-input-1-4" id="num1" type="text" value="0" maxlength="7" />
+                        to
+                        <input class="pure-input-1-4" id="num2" type="text" value="9" maxlength="7" />
+
+                        <br />
+
+                        <br />
+                        How many quesitons?
+                        <input class="pure-input-1-5" id="numQues" type="text" value="20" maxlength="2" /><br />
+                        <div class="pure-u-1" id="Alegebric" style="display:none;">
+                            <fieldset>
+                                <legend>Alegebra Operators</legend>
+                                First:<select name="ale1" id="ale1">
+                                    <option value="random1">random</option>
+                                    <option value="add1">&#43;</option>
+                                    <option value="subtract1">&#8722;</option>
+                                    <option value="multiply1">&#215;</option>
+                                    <option value="divide1">&#247;</option>
+                                </select>
+                                &nbsp;&nbsp;&nbsp;
+                                Second:<select name="ale2" id="ale2">
+                                    <option value="random2">random</option>
+                                    <option value="add2">&#43;</option>
+                                    <option value="subtract2">&#8722;</option>
+                                    <option value="multiply2">&#215;</option>
+                                    <option value="divide2">&#247;</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div style="margin: 10px;">
+                            |
+                            <input type="radio" id="1" name="Level" value="1" checked />
+                            <label for="1">Simple</label> |
+                            <input type="radio" id="2" name="Level" value="2" />
+                            <label for="2">Challenging</label> |
+                        </div>
+                        <button id="math" class="pure-button pure-button-primary">
+                            Create
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+
+            <!--READ FORM AREA--------------------------->
+            <!--READ FORM AREA--------------------------->
+            <div class="Vocabulary" style="display:none;">
+                <br />How many words?<br />
+                <input type="text" id="vAmount" value="24" style="text-align: center;" /><br /><br />
+
+                Type of words?
+                <div class="vocabSelect" style="margin: 10px;">
+                </div>
+                <button id="Vocabulary" class="pure-button pure-button-primary">
+                    Create</button>
+                <br />
+                <br />
+                <a href="100common.html" target="_blank">100 common words list</a>
+                <br />
+                <br />
+            </div>
+
+            <!--WRITE FORM AREA-------------------------->
+            <!--WRITE FORM AREA-------------------------->
+            <div class="tracing" style="display: none;">
+                <div class="pure-g" style="justify-content: center;">
+                    <div class="pure-u-1 stylePick">
+                        Style:
+                    <div id="trace" class="traceMe wStyle pure-u-1 SwS">ABC123</div>
+                    <div id="dots" class="dotsMe wStyle pure-u-1">ABC123</div>
+                    </div>
+                    <br />
+                    <div class="pure-u-1">
+                        <div style="margin: 10px;">
+                            |
+                            <input type="radio" id="na" name="wType" value="na" />
+                            <label for="na">Name</label> |
+                            <input type="radio" id="sh" name="wType" value="sh" />
+                            <label for="sh">Shapes</label> |<br/><br/>
+                            Alphanumeric<br/>|
+                            <input type="radio" id="a" name="wType" value="a" />
+                            <label for="a">All</label> |
+                            <input type="radio" id="s" name="wType" value="s" />
+                            <label for="s">Specific</label> |
+                            <input type="radio" id="r" name="wType" value="r" checked />
+                            <label for="r">Random</label> |
+                        </div>
+                        <hr>
+                    </div>
+<!--all Subform for choosing specific sets to print...-->
+                    <div class="pure-u-1 allSubForm" style="display: none;">
+                        <div class="pure-u-1 allSubForm">
+                            Include:<br />
+                            <div class="pure-u-1">
+                                <select name="writeAll" id="writeAll">
+                                    <option value="A">A-Z</option>
+                                    <option value="0">0-9</option>
+                                    <option value="z">a-z</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+<!--specific Subform for choosing specific sets to print...-->
+                    <div class="pure-u-1 specificSubForm" style="display: none;">
+                        Choose a letter from A-z or number from 0-9:
+                        <input id="AlphaNumeric" type="text" class="pure-u-1-6" style="text-align: center" value="a" maxlength="1" />
+                    </div>
+
+<!--name Subform for choosing specific sets to print...-->
+                    <div class="pure-u-1 nameSubForm" style="display: none;">
+                        <input class='traceMe' id='naammee' style='border: 1px solid black; border-radius:20; text-align:center; padding: 10px 0px; font-size: 3rem!important;' type='text' maxlength='20' value='name' id='kidsName' />
+                    </div>
+
+<!--random Subform for choosing specific sets to print...-->
+                    <div class="pure-u-1 randSubForm">
+                        Include:<br />
+                        <div class="pure-u-1-4">
+                            <input type="checkbox" id="AlphaUpper" name="AlphaUpper" value="Upper" checked />
+                            <label for="AlphaUpper">A-Z</label><br />
+                        </div>
+                        <div class="pure-u-1-4">
+                            <input type="checkbox" id="AlphaLower" name="AlphaLower" value="Lower" />
+                            <label for="AlphaLower">a-z</label><br />
+                        </div>
+                        <div class="pure-u-1-4">
+                            <input type="checkbox" id="Numeric" name="Numeric" value="Numbers" checked />
+                            <label for="Numeric">0-9</label><br />
+                        </div>
+                    </div>
+                    
+<!--shape Subform for choosing specific sets to print...-->
+                    <div class="pure-u-1 shapeSubForm" style="display: none;">
+                    <select name="selShape" id="selShape">
+                        <option value="rand">Random</option>
+                        <option value="spec">Specific</option>
+                    </select><br><br>
+                    <div class="subsub" style="display: none;">
+                        <div class="pure-u-1-5">
+                        <label for="star"><img src="svgs/Star.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="star" name="star" value="sta" /></div>
+                        
+                        <div class="pure-u-1-5">
+                        <label for="circle"><img src="svgs/Circle.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="circle" name="circle" value="cir" /></div>
+                        
+                        <div class="pure-u-1-5">
+                        <label for="triangle"><img src="svgs/Triangle.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="triangle" name="triangle" value="tri" /></div>
+                        
+                        <div class="pure-u-1-5">
+                        <label for="square"><img src="svgs/Square.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="square" name="square" value="squ" /></div>
+                        
+                        <div class="pure-u-1-5">
+                        <label for="heart"><img src="svgs/Heart.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="heart" name="heart" value="her" /></div>
+                        
+                        <div class="pure-u-1-5">
+                        <label for="pentagon"><img src="svgs/Pentagon.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="pentagon" name="pentagon" value="pen" /></div>
+                        
+                        <div class="pure-u-1-5">
+                        <label for="hexagon"><img src="svgs/Hexagon.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="hexagon" name="hexagon" value="hex" /></div>
+                        
+                        <div class="pure-u-1-5">
+                        <label for="septagon"><img src="svgs/Septagon.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="septagon" name="septagon" value="sep" /></div>
+                        
+                        <div class="pure-u-1-6">
+                        <label for="arrow2"><img src="svgs/Arrow2.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="arrow2" name="arrow2" value="ar2" /></div>
+
+                        <div class="pure-u-1-6">
+                        <label for="cloud"><img src="svgs/Cloud.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="cloud" name="cloud" value="clo" /></div>
+                        
+                        <div class="pure-u-1-6">
+                        <label for="donut"><img src="svgs/Donut.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="donut" name="donut" value="don" /></div>
+                        
+                        <div class="pure-u-1-6">
+                        <label for="diamond"><img src="svgs/Diamond.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="diamond" name="diamond" value="dia" /></div>
+
+                        <div class="pure-u-1-6">
+                        <label for="arrow1"><img src="svgs/Arrow1.svg" class="Sm" alt=""></label><br>
+                        <input type="checkbox" id="arrow1" name="arrow1" value="ar1" /></div>
+                        
+                    </div>
+                    </div>
+                </div>
+                <br />Trace how many?<br />
+                <input type="text" id="wAmount" value="20" style="text-align: center;" />
+                <br /><br />
+                <button id="tracing" class="pure-button pure-button-primary">
+                    Create</button>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // top buttons ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        function newer() {
+            $(".Main").show();
+            $(".printable").hide();
+        }
+        // math section //////////////////////////////////
+        // math section //////////////////////////////////
+        // math section //////////////////////////////////
+        $("button#math").on("click", function() {
+            var n1 = $("#num1").val();
+            var n2 = $("#num2").val();
+            var Qs = $("#numQues").val();
+            var Arith = $(".button-secondary").val();
+            var LvL = $("input[name=Level]:checked").val();
+            var a1, a2;
+            a1 = a2 = 0;
+            if (Arith == "xscr") {
+                a1 = $("#ale1").val();
+                a2 = $("#ale2").val();
+                $(".printable").html(mathForm(n1, n2, Qs, Arith, LvL, a1, a2));
+            } else {
+                $(".printable").html(mathForm(n1, n2, Qs, Arith, LvL));
+            }
+            $(".Main").hide();
+            $(".printable").show();
+            return false;
+        });
+
+        $(".arithmetic button").on("click", function() {
+            $(".arithmetic button").removeClass("button-secondary");
+            $(this).addClass("button-secondary");
+            var aleale = $(this).attr("value");
+            if (aleale == "xscr") {
+                $("#Alegebric").show();
+            } else {
+                $("#Alegebric").hide();
+            }
+        });
+
+        // Vocabulary section //////////////////////////////////
+        // Vocabulary section //////////////////////////////////
+        // Vocabulary section //////////////////////////////////
+        $("button#Vocabulary").on("click", function() {
+            var LetterAmount = $("input[name=Letters]:checked").val();
+            var wordAmount = $("#vAmount").val();
+
+            $(".printable").html(VocabularyForm(LetterAmount, wordAmount));
+            $(".Main").hide();
+            $(".printable").show();
+            return false;
+        });
+
+        $(document).on("click", ".rr", function() {
+            var LetterAmount = $("input[name=Letters]:checked").val();
+            $(this).parent().remove();
+            $(".readUs").append(addVocabulary(LetterAmount));
+        });
+        LoadLetterSection();
+
+
+        // tracing section //////////////////////////////////
+        // tracing section //////////////////////////////////
+        // tracing section //////////////////////////////////
+        $(".wStyle").on("click", function() {
+            $(".wStyle").removeClass("SwS");
+            $(this).addClass("SwS");
+        });
+
+        //        change the size on the fly /////////////////////////////////////
+        $(document).on("click", "input[name=newSize]", function() {
+            var nuSize = $("input[name=newSize]:checked").attr('id');
+            if (nuSize == "Sm") {
+                $(".reads").addClass("Sm");
+                tracingSize = "Sm";
+                $(".reads").removeClass("Md Lr XL");
+                //                $(".reads").removeClass("Lr");
+            } else if (nuSize == "Md") {
+                $(".reads").addClass("Md");
+                tracingSize = "Md";
+                $(".reads").removeClass("Sm Lr XL");
+                //                $(".reads").removeClass("Lr");
+            } else if (nuSize == "XL") {
+                $(".reads").addClass("XL");
+                tracingSize = "XL";
+                $(".reads").removeClass("Sm Md Lr");
+                //                $(".reads").removeClass("Lr");
+            } else if (nuSize == "Lr") {
+                $(".reads").addClass("Lr");
+                tracingSize = "Lr";
+                $(".reads").removeClass("Sm Md XL");
+                //                $(".reads").removeClass("Md");
+            } else {}
+        });
+
+        //        Change the font on the fly /////////////////////////////////////
+        $(document).on("click", "input[name=newStyle]", function() {
+            var nuStyle = $("input[name=newStyle]:checked").attr('id');
+            if (nuStyle == "newLines") {
+                $(".dotsMe").addClass("traceMe");
+                $(".reads").removeClass("Sm Md Lr XL");
+                $(".reads").addClass(tracingSize);
+                tracingStyle = "trace";
+                $(".dotsMe").removeClass("dotsMe");
+            } else if (nuStyle == "newDots") {
+                $(".traceMe").addClass("dotsMe");
+                $(".reads").removeClass("Sm Md Lr XL");
+                $(".reads").addClass(tracingSize);
+                tracingStyle = "dots";
+                $(".traceMe").removeClass("traceMe");
+            } else {}
+        });
+
+        //        Showing the correct sub form to display /////////////////////////
+        $("input[name=wType]").on("click", function() {
+            //           if ($("input[name=wType]:checked")==true)
+            var SR = $("input[name=wType]:checked").attr('id');
+            if (SR == "s") {
+                $(".randSubForm").hide();
+                $(".allSubForm").hide();
+                $(".nameSubForm").hide();
+                $(".shapeSubForm").hide();
+                $(".specificSubForm").show();
+                $(".stylePick").show();
+                $("#wAmount").val("19");
+                $("#wAmount").attr("disabled", false);
+            } else if (SR == "r") {
+                $(".specificSubForm").hide();
+                $(".nameSubForm").hide();
+                $(".allSubForm").hide();
+                $(".shapeSubForm").hide();
+                $(".randSubForm").show();
+                $(".stylePick").show();
+                $("#wAmount").val("19");
+                $("#wAmount").attr("disabled", false);
+            } else if (SR == "a") {
+                $(".specificSubForm").hide();
+                $(".randSubForm").hide();
+                $(".nameSubForm").hide();
+                $(".shapeSubForm").hide();
+                $(".allSubForm").show();
+                $(".stylePick").show();
+                $("#wAmount").val("1");
+                $("#wAmount").attr("disabled", true);
+            } else if (SR == "na") {
+                $(".specificSubForm").hide();
+                $(".randSubForm").hide();
+                $(".allSubForm").hide();
+                $(".shapeSubForm").hide();
+                $(".nameSubForm").show();
+                $(".stylePick").show();
+                $("#wAmount").val("20");
+                $("#wAmount").attr("disabled", false);
+            } else if (SR == "sh") {
+                $(".specificSubForm").hide();
+                $(".randSubForm").hide();
+                $(".allSubForm").hide();
+                $(".nameSubForm").hide();
+                $(".shapeSubForm").show();
+                $(".stylePick").hide();
+                $("#wAmount").val("20");
+                $("#wAmount").attr("disabled", false);
+            } else {}
+        });
+
+        
+        $("select[name=selShape]").on("change", function() {
+            var selShape = $("select[name=selShape]").val();
+            if (selShape=="rand"){
+                $(".subsub").hide();
+            }else if (selShape=="spec"){
+                $(".subsub").show();
+            }else {console.log("Something wrong with subsub")}
+        });
+
+        $("button#tracing").on("click", function() {
+            var Amou = $("#wAmount").val();
+            var Styl = $(".SwS").attr('id');
+            var Szz = "Md";
+            var AlNu = "";
+            tracingStyle = Styl;
+            tracingSize = Szz;
+            //            var wType = $("input[name=wType]:checked").val();
+            var wType = $("input[name=wType]:checked").attr('id');
+
+            if (wType == "a") {
+                AlNu = $("#writeAll").val();
+                $(".printable").html(traceThis(Amou, Styl, wType, AlNu));
+                chkRadio(Styl, Szz);
+                $(".Main").hide();
+                $(".printable").show();
+            } else if (wType == "na") {
+                AlNu = $("#naammee").val();
+                $(".printable").html(traceThis(Amou, Styl, wType, AlNu));
+                chkRadio(Styl, Szz);
+                $(".Main").hide();
+                $(".printable").show();
+            } else if (wType == "s") {
+                AlNu = $("#AlphaNumeric").val();
+                $(".printable").html(traceThis(Amou, Styl, wType, AlNu));
+                chkRadio(Styl, Szz);
+                $(".Main").hide();
+                $(".printable").show();
+            } else if (wType == "sh") {
+                var star,cir,tri,squ,heart,pent,hex,sep,ar2,cloud,dou,dia,ar1;
+                star=cir=tri=squ=heart=pent=hex=sep=ar2=cloud=dou=dia=ar1 = 0;
+                if ($("#star").prop("checked") == true) { star=1;} else {star=0;}
+                if ($("#circle").prop("checked") == true) { cir=1;} else {cir=0;}
+                if ($("#triangle").prop("checked") == true) { tri=1;} else {tri=0;}
+                if ($("#square").prop("checked") == true) { squ=1;} else {squ=0;}
+                
+                var Code;
+            } else if (wType == "r") {
+                var cap = 0;
+                var low = 0;
+                var nuu = 0;
+
+                if ($("#AlphaUpper").prop("checked") == true) {
+                    cap = 1;
+                } else {
+                    cap = 0;
+                }
+                if ($("#AlphaLower").prop("checked") == true) {
+                    low = 1;
+                } else {
+                    low = 0;
+                }
+                if ($("#Numeric").prop("checked") == true) {
+                    nuu = 1;
+                } else {
+                    nuu = 0;
+                }
+                var Codes = cap + "" + low + "" + nuu;
+                if (Codes == "000"){
+                    alert("Nothing was included. please try again.");
+                }else{
+                    $(".printable").html(traceThis(Amou, Styl, wType, Codes));
+                    chkRadio(Styl, Szz);
+                    $(".Main").hide();
+                    $(".printable").show();
+                }
+            } else {}
+        });
+
+        $(document).on('change', '#kidsName', function() {
+            if (writeOn == "na") {
+                $('#kidsName').val();
+                $(".traceMe").text($('#kidsName').val());
+            } else {}
+        })
+    </script>
+    <div class="footer DontPrintMe">
+        Sheets is a project of <a href="https://inlightglory.com">InLight Glory LLC.</a><br />
+        created by: Aquil Roberts<br />
+        &copy 2020
+    </div>
+</body></html>
