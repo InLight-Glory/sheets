@@ -106,7 +106,6 @@ body {
     font-weight: 900;
     background: var(--rain-bow);
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .circleMe {
@@ -173,6 +172,7 @@ body {
     margin: 0 auto;
     width: 75%;
     border: 30px, dotted, black;
+    xbackground-color: white;
 }
 .howz {
     display: none; 
@@ -275,75 +275,4 @@ ul{
 
 .footer > a {
     color: lightblue
-}
-
-/* Modern header styles */
-.header-container {
-    text-align: center;
-    background: var(--rain-bow);
-    padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.header-logo {
-    width: 80%;
-    max-width: 300px;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.header-logo:hover {
-    transform: scale(1.05);
-}
-
-/* Modern button styles */
-.menu-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.menu-item {
-    flex: 1;
-    text-align: center;
-}
-
-.modern-button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.modern-button:hover {
-    background: #45a049;
-    transform: translateY(-3px);
-}
-
-/* Modern dropdown styles */
-.dropdown-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.modern-dropdown {
-    width: 50%;
-    max-width: 300px;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
-}
-
-.modern-dropdown:focus {
-    border-color: #4CAF50;
-    outline: none;
 }

@@ -190,39 +190,46 @@ or just use vanilla JavaScript... https://tobiasahlin.com/blog/move-from-jquery-
     <div class="printable" id="thePrints"></div>
     <div class="Main">
         <div id="MenusArea">
-            <!-- Updated header section for a modern look -->
-<div class="header-container">
-    <a href="http://inlightglory.com/sheets" target="_blank">
-        <img src="SheetsHeader.svg" class="header-logo" alt="Sheets Logo">
-    </a>
-</div>
+            <div id="MenuBtn" class="pure-g">
+                <div class="pure-u-1-3">
+                    <p><button class="SubjectsSelect pure-button ">Math</button></p>
+                </div>
+                <div class="pure-u-1-3">
+                    <p><button class="SubjectsSelect pure-button ">Tracing</button></p>
+                </div>
+                <div class="pure-u-1-3">
+                    <p><button class="SubjectsSelect pure-button ">Reading</button></p>
+                </div>
+                <div class="pure-u-1-3">
+                    <p><button class="SubjectsSelect pure-button ">Vocabulary</button></p>
+                </div>
+                <!--
+                <div class="pure-u-1-3">
+                    <p><button class="SubjectsSelect pure-button ">Writing</button></p>
+                </div>
+-->
+            </div>
 
-<!-- Updated menu buttons with modern classes -->
-<div id="MenuBtn" class="menu-buttons">
-    <div class="menu-item">
-        <button class="SubjectsSelect modern-button">Math</button>
-    </div>
-    <div class="menu-item">
-        <button class="SubjectsSelect modern-button">Tracing</button>
-    </div>
-    <div class="menu-item">
-        <button class="SubjectsSelect modern-button">Reading</button>
-    </div>
-    <div class="menu-item">
-        <button class="SubjectsSelect modern-button">Vocabulary</button>
-    </div>
-</div>
+            <div id="MenuSide">
+                <div class="tab">
+                    <button class="tablinks" onclick="shoSheet(event, 'Math')" id="defaultOpen">Math</button>
+                    <button class="tablinks" onclick="shoSheet(event, 'Tracing')">Tracing</button>
+                    <button class="tablinks" onclick="shoSheet(event, 'Reading')">Reading</button>
+                    <button class="tablinks" onclick="shoSheet(event, 'Vocabulary')">Vocabulary</button>
+                    <button class="tablinks" onclick="shoSheet(event, 'Writing')">Writing</button>
+                </div>
+            </div>
 
-<!-- Updated dropdown menu -->
-<div id="MenuDrop" class="dropdown-container">
-    <select class="modern-dropdown" name="DropDownMenu" id="DropDownMenu" onchange="shoSheett()">
-        <option value="About" selected>About</option>
-        <option value="Math">Math</option>
-        <option value="Tracing">Tracing</option>
-        <option value="Reading">Reading</option>
-        <option value="Vocabulary">Vocabulary</option>
-    </select>
-</div>
+            <div id="MenuDrop" class="pure-g" style="text-align-last: center; font-size: 2.5em;">
+                <select class="pure-u-1" name="DropDownMenu" id="DropDownMenu" onchange="shoSheett()">
+                    <option value="About" selected></option>
+                    <option value="Math">Math</option>
+                    <option value="Tracing">Tracing</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Vocabulary">Vocabulary</option>
+                    <option value="Writing">Writing</option>
+                </select>
+            </div>
         </div>
         <div class="Contained">
             <div class="About formz" style="xdisplay:none; border-radius: 30px; border: 2px solid black; background-color: white; padding: 20px;">
@@ -863,7 +870,7 @@ or just use vanilla JavaScript... https://tobiasahlin.com/blog/move-from-jquery-
                 $(".randSubForm").hide();
                 $(".allSubForm").hide();
                 $(".nameSubForm").hide();
-                $(".shapeSubForm").show();
+                $(".shapeSubForm").hide();
                 $(".specificSubForm").show();
                 $(".stylePick").show();
                 $("#wAmount").val("19");
